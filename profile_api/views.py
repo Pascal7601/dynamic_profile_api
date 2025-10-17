@@ -1,5 +1,5 @@
 from django.http import JsonResponse
-from datetime import datetime
+from datetime import datetime, timezone
 import requests
 
 def profile(request):
@@ -8,7 +8,9 @@ def profile(request):
     external API which outputs an error in the cat_errors.log if
     the API is down
     """
-    time = datetime.utcnow().isoformat()
+    time = datetime.now(timezone.utc).isoformat()
+    if time.endswith('+00:00'):
+        time = time[:-6] + 'Z'
     fact = {"fact": "unable to fetch random cat fact due to an error"}
     try:
         response = requests.get("https://catfact.ninja/fact")
@@ -23,7 +25,7 @@ def profile(request):
             "user": {
                 "email": "pascalswe01@gmail.com",
                 "name": "Pascal Ndubi",
-                "stack": "Python / Django"
+                "stack": "Python/Django"
             },
             "timestamp": f"{time}",
             "fact": f"{fact["fact"]}"
