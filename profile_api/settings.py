@@ -31,6 +31,11 @@ ALLOWED_HOSTS = [
     'https://profileapi11-ogt1t98w.b4a.run',
 ]
 
+CSRF_TRUSTED_ORIGINS = [
+    'http://profileapi11-ogt1t98w.b4a.run',
+    'https://profileapi11-ogt1t98w.b4a.run',
+]
+SECURE_CSRF_COOKIE_SECURE = True  # Enforce HTTPS cookies
 
 # Application definition
 
