@@ -25,11 +25,7 @@ SECRET_KEY = 'django-insecure-0xg=q&1_4a5br4i9j4*60!o*#@$$y0&8)&wpiu&yb-_j6hvi)-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = [
-    'localhost',
-    '127.0.0.1',
-    'https://profileapi11-ogt1t98w.b4a.run',
-]
+ALLOWED_HOSTS = ["*"]
 
 CSRF_TRUSTED_ORIGINS = [
     'http://profileapi11-ogt1t98w.b4a.run',
